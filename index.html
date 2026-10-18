@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR Nest - Real Estate</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    },
+                    colors: {
+                        primary: "#0d9488", // Teal color from design
+                        dark: "#1e293b",
+                        light: "#f0fdfa",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* Custom scrollbar for horizontal scrolling areas */
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 cursor-pointer">
+                <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center text-white font-bold text-xl">
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">HR<span class="text-primary">NEST</span></span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#" class="text-primary hover:text-primary transition">Home</a
+          >
+          <a href="#" class="hover:text-primary transition">About</a>
+                <a href="#" class="hover:text-primary transition">Service</a>
+                <a href="#" class="hover:text-primary transition">Agent</a>
+                <a href="#" class="hover:text-primary transition">Blog</a>
+                <a href="#" class="hover:text-primary transition">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <button class="text-gray-500 hover:text-primary transition hidden sm:block">
+            <i class="fa-regular fa-heart text-xl"></i>
+            <a href="/login.html" target="_blank"> </button>
+                <button class="bg-primary hover:bg-teal-700 text-white px-6 py-2 rounded-md text-sm font-medium transition shadow-md shadow-teal-500/30">
+            Sign In / Login
+          </button></a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-light relative overflow-hidden">
+        <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
+            <!-- Text Content -->
+            <div class="md:w-1/2 mb-10 md:mb-0 z-10">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4 text-dark">
+                    Find Your Best<br />
+                    <span class="text-primary">Smart Real Estate</span>
+                </h1>
+                <p class="text-gray-600 mb-8 max-w-md">
+                    Embark on a journey to find your ideal living space with NestBase. Explore a curated selection of properties.
+                </p>
+                <div class="flex items-center gap-4">
+                    <button class="bg-primary hover:bg-teal-700 text-white px-8 py-3 rounded-md font-medium transition">
+              Learn More
+            </button>
+                    <button class="flex items-center gap-2 text-dark font-medium hover:text-primary transition">
+              <div
+                class="w-10 h-10 bg-white shadow-sm rounded-full flex items-center justify-center text-primary"
+              >
+                <i class="fa-solid fa-play"></i>
+              </div>
+              Watch video
+            </button>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="md:w-1/2 relative flex justify-end">
+                <!-- Decorative blob background -->
+                <div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl transform scale-125"></div>
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Real Estate Agent" class="relative z-10 w-full max-w-lg object-cover rounded-[3rem] rounded-tr-none shadow-xl border-4 border-white"
+                />
+            </div>
+        </div>
+
+        <!-- Floating Search Bar -->
+        <div class="container mx-auto px-6 relative -bottom-3 z-20">
+            <div class="bg-white p-4 rounded-xl shadow-lg flex flex-col md:flex-row gap-4 items-center justify-between border border-gray-100 max-w-4xl mx-auto">
+                <div class="flex items-center gap-2 w-full md:w-auto border-b md:border-b-0 md:border-r border-gray-200 pb-2 md:pb-0 md:pr-4">
+                    <i class="fa-solid fa-location-dot text-primary"></i>
+                    <select class="outline-none bg-transparent w-full text-sm font-medium text-gray-600">
+              <option>Location</option>
+              <option>New York</option>
+              <option>California</option>
+            </select>
+                </div>
+                <div class="flex items-center gap-2 w-full md:w-auto border-b md:border-b-0 md:border-r border-gray-200 pb-2 md:pb-0 md:pr-4">
+                    <i class="fa-solid fa-house text-primary"></i>
+                    <select class="outline-none bg-transparent w-full text-sm font-medium text-gray-600">
+              <option>Property Type</option>
+              <option>Apartment</option>
+              <option>Villa</option>
+            </select>
+                </div>
+                <div class="flex items-center gap-2 w-full md:w-auto border-b md:border-b-0 md:border-r border-gray-200 pb-2 md:pb-0 md:pr-4">
+                    <i class="fa-solid fa-tag text-primary"></i>
+                    <select class="outline-none bg-transparent w-full text-sm font-medium text-gray-600">
+              <option>Max Price</option>
+              <option>$1,000</option>
+              <option>$5,000</option>
+            </select>
+                </div>
+                <button class="bg-primary hover:bg-teal-700 text-white px-6 py-2 rounded-md text-sm font-medium transition w-full md:w-auto">
+            Search
+          </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / EXCLUSIVE SECTION -->
+    <section class="py-20 mt-8 container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <!-- Image side -->
+            <div class="md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Home" class="w-full rounded-2xl rounded-bl-[100px] shadow-lg" />
+                <div class="absolute bottom-6 right-6 bg-white p-4 rounded-xl shadow-md flex items-center gap-3">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Available</p>
+                        <p class="font-bold text-dark">2,202 Unit</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text side -->
+            <div class="md:w-1/2">
+                <span class="text-primary font-semibold text-sm tracking-wider uppercase mb-2 block">About Us</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-6 text-dark leading-tight"
+          >
+            We Are The Best Real Estate<br />Company In The World.
+          </h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            The site premises rewards for doing "missions" like filing surveys,
+            installing mobile apps, etc.) to collect points and exchange them
+            for real estate services.
+          </p>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            It provides a comprehensive platform for buying, selling, and
+            renting properties with verified listings and expert agents.
+          </p>
+          <button
+            class="bg-primary hover:bg-teal-700 text-white px-8 py-3 rounded-md font-medium transition"
+          >
+            Read More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPERTY LISTINGS -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+          <div>
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-2 block"
+              >Property</span
+            >
+            <h2 class="text-3xl font-bold text-dark">
+              Find Your Perfect Home<br />With Nestbes
+            </h2>
+          </div>
+          <!-- Filter Tabs -->
+          <div
+            class="flex gap-2 mt-6 md:mt-0 bg-white p-1 rounded-lg border border-gray-200"
+          >
+            <button
+              class="px-6 py-2 bg-primary text-white rounded-md text-sm font-medium transition"
+            >
+              Rent
+            </button>
+            <button
+              class="px-6 py-2 hover:bg-gray-100 text-gray-600 rounded-md text-sm font-medium transition"
+            >
+              Buy
+            </button>
+            <button
+              class="px-6 py-2 hover:bg-gray-100 text-gray-600 rounded-md text-sm font-medium transition"
+            >
+              Sell
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Property Card 1 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition group border border-gray-100"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+              />
+              <button
+                class="absolute top-4 right-4 bg-white/90 p-2 rounded-full text-gray-500 hover:text-red-500 transition"
+              >
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <span
+                class="absolute bottom-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-md"
+                >For Rent</span
+              >
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-dark mb-2">
+                Riqaza Apartment Montreal
+              </h3>
+              <p class="text-gray-500 text-sm mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-primary"></i> Beverly
+                Valley Osk, USA
+              </p>
+              <div
+                class="flex justify-between items-center border-t border-gray-100 pt-4"
+              >
+                <span class="text-primary font-bold text-lg"
+                  >$ 2500
+                  <span class="text-sm font-normal text-gray-500"
+                    >/mo</span
+                  ></span
+                >
+                <div class="flex gap-4 text-gray-500 text-sm">
+                  <span><i class="fa-solid fa-bed mr-1"></i> 3</span>
+                <span><i class="fa-solid fa-bath mr-1"></i> 2</span>
+                <span><i class="fa-solid fa-ruler-combined mr-1"></i> 1200</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Card 2 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition group border border-gray-100"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+              />
+              <button
+                class="absolute top-4 right-4 bg-white/90 p-2 rounded-full text-gray-500 hover:text-red-500 transition"
+              >
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <span
+                class="absolute bottom-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-md"
+                >For Sale</span
+              >
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-dark mb-2">
+                Modern Luxury Villa
+              </h3>
+              <p class="text-gray-500 text-sm mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-primary"></i> Miami
+                Beach, FL
+              </p>
+              <div
+                class="flex justify-between items-center border-t border-gray-100 pt-4"
+              >
+                <span class="text-primary font-bold text-lg">$ 850,000</span>
+                <div class="flex gap-4 text-gray-500 text-sm">
+                    <span><i class="fa-solid fa-bed mr-1"></i> 4</span>
+                    <span><i class="fa-solid fa-bath mr-1"></i> 3</span>
+                    <span><i class="fa-solid fa-ruler-combined mr-1"></i> 2500</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Card 3 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition group border border-gray-100"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+              />
+              <button
+                class="absolute top-4 right-4 bg-white/90 p-2 rounded-full text-gray-500 hover:text-red-500 transition"
+              >
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <span
+                class="absolute bottom-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-md"
+                >For Rent</span
+              >
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-dark mb-2">
+                Scandinavian Style Home
+              </h3>
+              <p class="text-gray-500 text-sm mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-primary"></i> Austin,
+                Texas
+              </p>
+              <div
+                class="flex justify-between items-center border-t border-gray-100 pt-4"
+              >
+                <span class="text-primary font-bold text-lg"
+                  >$ 3,200
+                  <span class="text-sm font-normal text-gray-500"
+                    >/mo</span
+                  ></span
+                >
+                <div class="flex gap-4 text-gray-500 text-sm">
+                  <span><i class="fa-solid fa-bed mr-1"></i> 2</span>
+                    <span><i class="fa-solid fa-bath mr-1"></i> 2</span>
+                    <span><i class="fa-solid fa-ruler-combined mr-1"></i> 1500</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-md font-medium transition"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTS SECTION -->
+    <section class="py-20 container mx-auto px-6">
+      <div class="text-center mb-12">
+        <span
+          class="text-primary font-semibold text-sm tracking-wider uppercase mb-2 block"
+          >Expertise Is Here</span
+        >
+        <h2 class="text-3xl font-bold text-dark">Our Exclusive Agents</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Agent 1 -->
+        <div class="group cursor-pointer">
+          <div
+            class="bg-gray-100 rounded-2xl overflow-hidden mb-4 relative h-80"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-500"
+            />
+            <!-- Social Overlay -->
+            <div
+              class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4"
+            >
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-bold text-dark">Alex Jeny</h3>
+            <p class="text-gray-500 text-sm">Real Estate Agent</p>
+          </div>
+        </div>
+
+        <!-- Agent 2 -->
+        <div class="group cursor-pointer">
+          <div
+            class="bg-gray-100 rounded-2xl overflow-hidden mb-4 relative h-80"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4"
+            >
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-bold text-dark">Sarah Smith</h3>
+            <p class="text-gray-500 text-sm">Senior Agent</p>
+          </div>
+        </div>
+
+        <!-- Agent 3 -->
+        <div class="group cursor-pointer">
+          <div
+            class="bg-gray-100 rounded-2xl overflow-hidden mb-4 relative h-80"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4"
+            >
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-dark hover:text-white transition"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-bold text-dark">David John</h3>
+            <p class="text-gray-500 text-sm">Property Consultant</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BECOME AN AGENT CTA -->
+    <section class="container mx-auto px-6 mb-20">
+      <div
+        class="bg-light rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between relative overflow-hidden"
+      >
+        <div class="md:w-1/2 z-10 mb-8 md:mb-0">
+          <h2 class="text-3xl font-bold text-dark mb-4">
+            Become a Real<br />Estate Agent
+          </h2>
+          <p class="text-gray-600 mb-8 max-w-md">
+            Apply now to become part of a growing network of real estate
+            professionals.
+          </p>
+
+          <form class="flex flex-col sm:flex-row gap-4 max-w-md">
+            <input
+              type="email"
+              placeholder="Enter Your Email here"
+              class="px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:border-primary w-full"
+            />
+            <button
+              type="submit"
+              class="bg-primary hover:bg-teal-700 text-white px-6 py-3 rounded-md font-medium transition whitespace-nowrap"
+            >
+              Submit Now
+            </button>
+          </form>
+        </div>
+
+        <div class="md:w-1/3 z-10 hidden md:block">
+          <!-- Placeholder for the agent image in CTA -->
+          <img
+            src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            alt="Agent"
+            class="w-48 h-48 object-cover rounded-full border-4 border-white shadow-lg mx-auto"
+          />
+        </div>
+
+        <!-- Decorative circle -->
+        <div
+          class="absolute -right-20 -top-20 w-96 h-96 bg-primary/5 rounded-full blur-2xl"
+        ></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-gray-300 py-16">
+      <div
+        class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12"
+      >
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-6">
+            <div
+              class="w-8 h-8 bg-primary rounded-md flex items-center justify-center text-white font-bold text-xl"
+            >
+              <i class="fa-solid fa-house-chimney"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-white"
+              >HR<span class="text-primary">NEST</span></span>
+                </div>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                    The most trusted real estate platform for buying, selling, and renting premium properties worldwide.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook-f"></i
+            ></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-twitter"></i
+            ></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i
+            ></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="text-white font-bold mb-6">Quick Link</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-primary transition">Home</a></li>
+                    <li><a href="#" class="hover:text-primary transition">About</a></li>
+                    <li><a href="#" class="hover:text-primary transition">Blog</a></li>
+                    <li>
+                        <a href="#" class="hover:text-primary transition">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Utility -->
+            <div>
+                <h4 class="text-white font-bold mb-6">Utility Pages</h4>
+                <ul class="space-y-3 text-sm">
+                    <li>
+                        <a href="#" class="hover:text-primary transition">Password Protected</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-primary transition"
+                >404 Not Found</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-primary transition">Licenses</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-primary transition">Changelog</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-white font-bold mb-6">Contact</h4>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone text-primary mt-1"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-envelope text-primary mt-1"></i>
+                        <span>support@hrnest.com</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-primary mt-1"></i>
+                        <span>123 Real Estate Blvd,<br />New York, NY 10001</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+            &copy; 2024 HR Nest. All rights reserved.
+        </div>
+        </footer>
+</body>
+
+</html>
