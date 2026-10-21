@@ -39,6 +39,10 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -56,13 +60,12 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-                <a href="#" class="text-primary hover:text-primary transition">Home</a
-          >
-          <a href="#" class="hover:text-primary transition">About</a>
-                <a href="#" class="hover:text-primary transition">Service</a>
-                <a href="#" class="hover:text-primary transition">Agent</a>
-                <a href="#" class="hover:text-primary transition">Blog</a>
-                <a href="#" class="hover:text-primary transition">Contact</a>
+                <a href="#home" class=" hover:text-primary transition ">Home</a>
+                <a href="#about" class="hover:text-primary transition">About</a>
+                <a href="#service" class="hover:text-primary transition">Service</a>
+                <a href="#agent" class="hover:text-primary transition">Agent</a>
+                <!-- <a href="#blog" class="hover:text-primary transition">Blog</a> -->
+                <a href="#contact" class="hover:text-primary transition">Contact</a>
             </nav>
 
             <!-- Actions -->
@@ -79,7 +82,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="bg-light relative overflow-hidden">
+    <section id="home" class="bg-light relative overflow-hidden">
         <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
             <!-- Text Content -->
             <div class="md:w-1/2 mb-10 md:mb-0 z-10">
@@ -149,7 +152,7 @@
     </section>
 
     <!-- ABOUT / EXCLUSIVE SECTION -->
-    <section class="py-20 mt-8 container mx-auto px-6">
+    <section id="about" class="py-20 mt-8 container mx-auto px-6">
         <div class="flex flex-col md:flex-row items-center gap-12">
             <!-- Image side -->
             <div class="md:w-1/2 relative">
@@ -193,7 +196,7 @@
     </section>
 
     <!-- PROPERTY LISTINGS -->
-    <section class="py-16 bg-gray-50">
+    <section id="service" class="py-16 bg-gray-50">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-end mb-10">
           <div>
@@ -374,7 +377,7 @@
     </section>
 
     <!-- AGENTS SECTION -->
-    <section class="py-20 container mx-auto px-6">
+    <section id="agent" class="py-20 container mx-auto px-6">
       <div class="text-center mb-12">
         <span
           class="text-primary font-semibold text-sm tracking-wider uppercase mb-2 block"
@@ -493,7 +496,7 @@
     </section>
 
     <!-- BECOME AN AGENT CTA -->
-    <section class="container mx-auto px-6 mb-20">
+    <section id="contact" class="container mx-auto px-6 mb-20">
       <div
         class="bg-light rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between relative overflow-hidden"
       >
